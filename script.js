@@ -1,4 +1,4 @@
-// Scroll suave al hacer clic en los enlaces del menú
+
 document.querySelectorAll('a[href^="#"]').forEach(enlace => {
     enlace.addEventListener('click', function(e) {
         e.preventDefault();
@@ -8,7 +8,6 @@ document.querySelectorAll('a[href^="#"]').forEach(enlace => {
     });
 });
 
-// Resaltar sección activa en el menú
 window.addEventListener('scroll', () => {
     let fromTop = window.scrollY + 80;
     document.querySelectorAll("nav ul li a").forEach(link => {
