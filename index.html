@@ -1,22 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portafolio de Manuel Marin — Software Engineer. Proyectos, habilidades y contacto.">
     <title>Portafolio - Manuel Marin</title>
-
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
-    <!-- Cargar Swiper y script principal con defer (una sola vez) -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js" defer></script>
     <script src="script.js" defer></script>
 </head>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="script.js" defer></script>
+
 <body>
-    <a class="skip-link" href="#main">Saltar al contenido</a>
     <header>
-        <nav aria-label="Navegación principal">
+        <nav>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
@@ -27,7 +27,6 @@
         </nav>
     </header>
 
-    <main id="main">
     <section id="inicio">
         <h1>¡Hola! Soy Manuel Marin</h1>
         <p>Software Engineer especializado en transformar ideas en soluciones tecnológicas innovadoras con enfoque en análisis lógico, creatividad y atención al detalle.</p>
@@ -43,31 +42,30 @@
 
     <section id="proyectos">
         <h2>Proyectos</h2>
-        <div class="proyectos-grid">
-            <article class="proyecto">
-                <h3>LikeHome — e-commerce</h3>
+        
+            <div class="proyecto">
+                <h3>LikeHome e-commerce website</h3>
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="img/carrito movil.png" alt="Vista carrito móvil"></div>
-                        <div class="swiper-slide"><img src="img/EditarInv Movil Like-Home.png" alt="Editar inventario móvil"></div>
-                        <div class="swiper-slide"><img src="img/Inventario Like-Home.png" alt="Inventario"></div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                        <div class="swiper-slide"><img src="img/carrito movil.png" alt="Vista 1"></div>
+                        <div class="swiper-slide"><img src="img/EditarInv Movil Like-Home.png" alt="Vista 2"></div>
+                        <div class="swiper-slide"><img src="img/Inventario Like-Home.png" alt="Vista 3"></div>
                 </div>
-                <p>Plataforma web que centraliza inventario, carritos/pedidos, gestión de clientes/usuarios y un panel de analítica mensual. Implementa cancelación automática de pedidos no efectuados, PDFs de factura y oferta, control de permisos por rol y una API REST. Monolito Django con apps separadas por dominio.</p>
-            </article>
-
-            <article class="proyecto">
-                <h3>Eglis S.A. — sitio corporativo</h3>
+    <!-- Controles -->
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+        
+            <p>Plataforma web que centraliza inventario, carritos/pedidos, gestión de clientes/usuarios y un panel de analítica mensual. Implementa cancelación automática de pedidos no efectuados, PDFs de factura y oferta, control de permisos por rol y una API REST para integraciones. La base es un monolito Django con apps separadas por dominio.</p>
+            </div>
+            <div class="proyecto">
+                <h3>Eglis S.A. website</h3>
                 <p>Solución web empresarial que automatiza tareas para el negocio de remesas.</p>
-            </article>
-
-            <article class="proyecto">
+            </div>
+            <div class="proyecto">
                 <h3>Gestión de menú para cafetería</h3>
                 <p>Aplicación para administración de menús y entrenamiento del equipo de trabajo.</p>
-            </article>
+            </div>
         </div>
     </section>
 
@@ -87,14 +85,12 @@
         <h2>Contacto</h2>
         <p>Email: <a href="mailto:manuelmkt.marin1@gmail.com">manuelmkt.marin1@gmail.com</a></p>
         <p>Teléfono: +53 55513196</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/manuel-marin-castillo-0b205237a/" target="_blank" rel="noopener noreferrer">manuel-marin-castillo</a></p>
-
-        <div id="cv">
-            <h3>Mi CV</h3>
-            <iframe src="CV Manuel Marin EN.pdf" width="100%" height="600" title="CV Manuel Marin"></iframe>
-        </div>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/manuel-marin-castillo-0b205237a/" target="_blank">manuel-marin-castillo</a></p>
+        <section id="cv">
+            <h2>Mi CV</h2>
+            <iframe src="CV Manuel Marin EN.pdf" width="100%" height="600px"></iframe>
+        </section>
     </section>
-    </main>
 
     <footer>
         <p>© 2025 - Manuel Marin</p>

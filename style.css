@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -11,27 +12,6 @@ body {
     line-height: 1.6;
 }
 
-/* Skip link accesibilidad */
-.skip-link {
-  position: absolute;
-  left: -999px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-.skip-link:focus {
-  left: 10px;
-  top: 10px;
-  width: auto;
-  height: auto;
-  padding: 8px 12px;
-  background: #000;
-  color: #fff;
-  z-index: 1000;
-  border-radius: 4px;
-}
-
 header {
     background: #1e1e1e;
     padding: 1rem;
@@ -41,12 +21,10 @@ header nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
-    gap: 1rem;
-    flex-wrap: wrap;
 }
 
 header nav ul li {
-    margin: 0 10px;
+    margin: 0 20px;
 }
 
 header nav ul li a {
@@ -61,7 +39,7 @@ nav ul li a.active {
     color: #00bcd4;
 }
 
-main > section {
+section {
     max-width: 900px;
     margin: 50px auto;
     padding: 20px;
@@ -75,7 +53,6 @@ h1, h2 {
     color: #222;
 }
 
-/* Grid de proyectos */
 .proyectos-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -100,47 +77,22 @@ footer {
     color: #fff;
     margin-top: 50px;
 }
-
-/* Swiper */
 .swiper {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 250px;
   margin-bottom: 15px;
   border-radius: 8px;
   overflow: hidden;
-  background: #f4f4f4;
 }
 
 .swiper-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* mejora la estética */
+  object-fit: contain; /* muestra la imagen completa */
+  background: #f4f4f4; /* opcional, color de fondo donde no llega la imagen */
 }
 
 .swiper-button-prev, .swiper-button-next {
   color: #00bcd4;
-}
-
-/* Responsive */
-@media (max-width: 800px) {
-  .proyectos-grid {
-    grid-template-columns: 1fr;
-  }
-  .swiper {
-    aspect-ratio: 4/3;
-  }
-  header nav ul {
-    gap: 0.5rem;
-  }
-}
-
-@media (max-width: 420px) {
-  header nav ul {
-    justify-content: flex-start;
-    padding-left: 12px;
-  }
-  main > section {
-    margin: 20px 12px;
-  }
 }
 
