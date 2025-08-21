@@ -2,12 +2,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio - Manuel Marin</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+
     <script src="script.js" defer></script>
 </head>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="script.js" defer></script>
+
 <body>
     <header>
         <nav>
@@ -39,6 +45,17 @@
         <div class="proyectos-grid">
             <div class="proyecto">
                 <h3>LikeHome e-commerce website</h3>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="img/proyecto1-1.png" alt="Vista 1"></div>
+                        <div class="swiper-slide"><img src="img/proyecto1-2.png" alt="Vista 2"></div>
+                        <div class="swiper-slide"><img src="img/proyecto1-3.png" alt="Vista 3"></div>
+                </div>
+    <!-- Controles -->
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+        </div>
                 <p>Plataforma web que centraliza inventario, carritos/pedidos, gestión de clientes/usuarios y un panel de analítica mensual. Implementa cancelación automática de pedidos no efectuados, PDFs de factura y oferta, control de permisos por rol y una API REST para integraciones. La base es un monolito Django con apps separadas por dominio.</p>
             </div>
             <div class="proyecto">
