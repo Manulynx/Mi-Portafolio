@@ -2,109 +2,415 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio - Manuel Marin</title>
+    <meta name="description" content="Portafolio profesional de Manuel Marin - Software Engineer">
+    <title>Manuel Marin | Software Engineer</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
-
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script src="script.js" defer></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#sobre-mi">Sobre mí</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
+        <div class="nav-container">
+            <div class="logo">
+                Manuel<span>Marin</span>
+            </div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#inicio" class="active">Inicio</a></li>
+                    <li><a href="#sobre-mi">Sobre mí</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#habilidades">Habilidades</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <section id="inicio">
-        <h1>¡Hola! Soy Manuel Marin</h1>
-        <p>Software Engineer especializado en transformar ideas en soluciones tecnológicas innovadoras con enfoque en análisis lógico, creatividad y atención al detalle.</p>
+        <div class="hero-content" data-aos="fade-up">
+            <div class="hero-text">
+                <p class="greeting">¡Hola, mundo! Soy</p>
+                <h1>Manuel Marin</h1>
+                <h2 class="typing-text">Software Engineer</h2>
+                <p class="hero-description">Especializado en transformar ideas en soluciones tecnológicas innovadoras con enfoque en análisis lógico, creatividad y atención al detalle.</p>
+                <div class="hero-btns">
+                    <a href="#proyectos" class="btn primary-btn">Ver proyectos</a>
+                    <a href="#contacto" class="btn secondary-btn">Contacto</a>
+                </div>
+            </div>
+            <div class="hero-social">
+                <a href="https://www.linkedin.com/in/manuel-marin-castillo-0b205237a/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Manulynx" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:manuelmkt.marin1@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <a href="#sobre-mi" aria-label="Scroll down"><i class="fas fa-chevron-down"></i></a>
+        </div>
     </section>
 
     <section id="sobre-mi">
-        <h2>Sobre mí</h2>
-        <p>
-            Ingeniero de Software graduado en la Universidad de Ciencias Informáticas (UCI), Cuba (07-2024).
-            Me destaco por aprendizaje rápido, adaptabilidad y trabajo en equipo, aportando valor real y duradero a cada proyecto.
-        </p>
+        <div class="section-title" data-aos="fade-up">
+            <h2>Sobre mí</h2>
+        </div>
+        <div class="about-content" data-aos="fade-up" data-aos-delay="100">
+            <div class="about-image">
+                <div class="image-wrapper">
+                    <!-- Aquí puedes agregar tu foto si lo deseas -->
+                    <div class="profile-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="about-text">
+                <h3>Ingeniero de Software apasionado por crear soluciones impactantes</h3>
+                <p>
+                    Graduado en la Universidad de Ciencias Informáticas (UCI), Cuba (07-2024), con experiencia en desarrollo web y aplicaciones empresariales. 
+                </p>
+                <p>
+                    Me destaco por mi capacidad de aprendizaje rápido, adaptabilidad y excelente trabajo en equipo. Mi enfoque combina sólidos conocimientos técnicos con habilidades analíticas para resolver problemas complejos de manera eficiente.
+                </p>
+                <p>
+                    Mi objetivo es aportar valor real y duradero a cada proyecto, creando software que no solo funcione correctamente, sino que también ofrezca una excelente experiencia de usuario y sea fácil de mantener.
+                </p>
+                <div class="about-details">
+                    <div class="detail-item">
+                        <span class="detail-icon"><i class="fas fa-graduation-cap"></i></span>
+                        <span class="detail-title">Educación:</span>
+                        <span class="detail-value">Ingeniería de Software, UCI</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-icon"><i class="fas fa-map-marker-alt"></i></span>
+                        <span class="detail-title">Ubicación:</span>
+                        <span class="detail-value">Cuba</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-icon"><i class="fas fa-language"></i></span>
+                        <span class="detail-title">Idiomas:</span>
+                        <span class="detail-value">Español (nativo), Inglés (B1)</span>
+                    </div>
+                </div>
+                <a href="CV Manuel Marin EN.pdf" class="btn primary-btn" download>Descargar CV <i class="fas fa-download"></i></a>
+            </div>
+        </div>
     </section>
 
     <section id="proyectos">
-        <h2>Proyectos</h2>
-        
-            <div class="proyecto">
-                <h3>LikeHome e-commerce website</h3>
+        <div class="section-title" data-aos="fade-up">
+            <h2>Proyectos</h2>
+        </div>
+        <div class="projects-container">
+            <div class="proyecto" data-aos="fade-up">
+                <div class="proyecto-header">
+                    <h3>LikeHome E-commerce Platform</h3>
+                    <div class="proyecto-tags">
+                        <span class="tag">Django</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">RESTful API</span>
+                    </div>
+                </div>
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="img/carrito movil.png" alt="Vista 1"></div>
-                        <div class="swiper-slide"><img src="img/EditarInv Like-Home.png" alt="Vista 2"></div>
-                        <div class="swiper-slide"><img src="img/Inventario Like-Home.png" alt="Vista 3"></div>
+                        <div class="swiper-slide"><img src="img/carrito movil.png" alt="Vista móvil del carrito de compras"></div>
+                        <div class="swiper-slide"><img src="img/EditarInv Like-Home.png" alt="Panel de edición de inventario"></div>
+                        <div class="swiper-slide"><img src="img/Inventario Like-Home.png" alt="Panel de inventario"></div>
+                        <div class="swiper-slide"><img src="img/Carrito pc.png" alt="Vista de carrito en PC"></div>
+                        <div class="swiper-slide"><img src="img/Inicio Admin-Like-Home.png" alt="Panel de administración"></div>
+                        <div class="swiper-slide"><img src="img/Gestion y estadisticas Like-Home.png" alt="Panel de estadísticas"></div>
+                    </div>
+                    <!-- Controles -->
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
-    <!-- Controles -->
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-        
+                <div class="proyecto-content">
+                    <p>Plataforma web completa para comercio electrónico que centraliza:</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Gestión de inventario con seguimiento en tiempo real</li>
+                        <li><i class="fas fa-check"></i> Sistema de carritos y procesamiento de pedidos</li>
+                        <li><i class="fas fa-check"></i> Gestión de clientes y usuarios con control de acceso basado en roles</li>
+                        <li><i class="fas fa-check"></i> Panel de analítica con visualización de datos mensuales</li>
+                        <li><i class="fas fa-check"></i> Generación automática de PDFs para facturas y ofertas</li>
+                        <li><i class="fas fa-check"></i> API REST para integraciones externas</li>
+                    </ul>
+                    <p class="tech-stack">Desarrollado con Django siguiendo arquitectura modular con apps separadas por dominio de negocio.</p>
+                </div>
             </div>
-           <p>Plataforma web que centraliza inventario, carritos/pedidos, gestión de clientes/usuarios y un panel de analítica mensual. Implementa cancelación automática de pedidos no efectuados, PDFs de factura y oferta, control de permisos por rol y una API REST para integraciones. La base es un monolito Django con apps separadas por dominio.</p>
 
-            <div class="proyecto">
-                <h3>Eglis S.A. website</h3>
+            <div class="proyecto" data-aos="fade-up" data-aos-delay="100">
+                <div class="proyecto-header">
+                    <h3>Eglis S.A. - Sistema de Remesas</h3>
+                    <div class="proyecto-tags">
+                        <span class="tag">Django</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Fintech</span>
+                        <span class="tag">UX/UI</span>
+                    </div>
+                </div>
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="img/Inicio Eglis.png" alt="Vista 1"></div>
-                        <div class="swiper-slide"><img src="img/Eglis FormRem.png" alt="Vista 2"></div>
-                        <div class="swiper-slide"><img src="img/Eglis NavBar.png" alt="Vista 3"></div>
+                        <div class="swiper-slide"><img src="img/Inicio Eglis.png" alt="Página de inicio"></div>
+                        <div class="swiper-slide"><img src="img/Eglis FormRem.png" alt="Formulario de remesas"></div>
+                        <div class="swiper-slide"><img src="img/Eglis NavBar.png" alt="Barra de navegación"></div>
+                        <div class="swiper-slide"><img src="img/Eglis FormEnv.png" alt="Formulario de envío"></div>
+                    </div>
+                    <!-- Controles -->
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
-    <!-- Controles -->
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-        
+                <div class="proyecto-content">
+                    <p>Aplicación web financiera diseñada para automatizar procesos críticos de remesas y pagos:</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Sistema de autenticación y autorización seguro</li>
+                        <li><i class="fas fa-check"></i> Procesamiento y validación de transacciones financieras</li>
+                        <li><i class="fas fa-check"></i> Notificaciones en tiempo real para usuarios y administradores</li>
+                        <li><i class="fas fa-check"></i> Dashboard administrativo con herramientas de gestión</li>
+                        <li><i class="fas fa-check"></i> Interfaz adaptativa para dispositivos móviles y escritorio</li>
+                    </ul>
+                    <p class="tech-stack">Implementado con Django, JavaScript moderno y técnicas de UX centradas en el usuario para operaciones financieras.</p>
+                </div>
             </div>
-           <p>Se desarrolló una aplicación web basada en Django diseñada para automatizar la gestión, validación y procesamiento de remesas y pagos. El sistema integra módulos de autenticación, gestión de notificaciones y herramientas administrativas para optimizar los flujos de trabajo financieros.</p>
-
-            
         </div>
     </section>
 
     <section id="habilidades">
-        <h2>Habilidades</h2>
-        <ul>
-            <li>Lenguajes: Python, TypeScript, JavaScript</li>
-            <li>Frameworks y librerías: Django, FastAPI, PydanticAI, SQLModel, Node.js, Express.js, JSON</li>
-            <li>Bases de Datos: MySQL, PostgreSQL</li>
-            <li>Control de versiones: Git</li>
-            <li>Ofimática: Microsoft Office</li>
-            <li>Metodologías: Análisis y Diseño de Sistemas, Desarrollo de Software</li>
-            <li>Idiomas: Español (nativo), Inglés (B1)</li>
-        </ul>
+        <div class="section-title" data-aos="fade-up">
+            <h2>Habilidades</h2>
+        </div>
+        <div class="skills-container" data-aos="fade-up" data-aos-delay="100">
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Lenguajes</h3>
+                <div class="skill-bars">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Python</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>JavaScript</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>TypeScript</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>HTML/CSS</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-laptop-code"></i> Frameworks & Librerías</h3>
+                <div class="skill-bars">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Django</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>FastAPI</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Node.js / Express</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>SQLModel / PydanticAI</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-database"></i> Bases de Datos & Herramientas</h3>
+                <div class="skill-grid">
+                    <div class="skill-tag">MySQL</div>
+                    <div class="skill-tag">PostgreSQL</div>
+                    <div class="skill-tag">Git</div>
+                    <div class="skill-tag">GitHub</div>
+                    <div class="skill-tag">VS Code</div>
+                    <div class="skill-tag">PyCharm</div>
+                    <div class="skill-tag">Docker</div>
+                    <div class="skill-tag">RESTful APIs</div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-tasks"></i> Metodologías & Soft Skills</h3>
+                <div class="skill-grid">
+                    <div class="skill-tag">Scrum</div>
+                    <div class="skill-tag">Análisis de Sistemas</div>
+                    <div class="skill-tag">Diseño de Software</div>
+                    <div class="skill-tag">Trabajo en Equipo</div>
+                    <div class="skill-tag">Resolución de Problemas</div>
+                    <div class="skill-tag">Aprendizaje Rápido</div>
+                    <div class="skill-tag">Comunicación Efectiva</div>
+                    <div class="skill-tag">Adaptabilidad</div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="contacto">
-        <h2>Contacto</h2>
-        <p>Email: <a href="mailto:manuelmkt.marin1@gmail.com">manuelmkt.marin1@gmail.com</a></p>
-        <p>Teléfono: +53 55513196</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/manuel-marin-castillo-0b205237a/" target="_blank">manuel-marin-castillo</a></p>
-        <section id="cv">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Contacto</h2>
+        </div>
+        
+        <div class="contact-container" data-aos="fade-up" data-aos-delay="100">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <a href="mailto:manuelmkt.marin1@gmail.com">manuelmkt.marin1@gmail.com</a>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Teléfono</h3>
+                    <p>+53 55513196</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/manuel-marin-castillo-0b205237a/" target="_blank">manuel-marin-castillo</a>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/Manulynx" target="_blank">Manulynx</a>
+                </div>
+            </div>
+            
+            <div class="contact-form-container">
+                <h3>Envíame un mensaje</h3>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Asunto</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn primary-btn">Enviar mensaje <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        
+        <section id="cv" data-aos="fade-up" data-aos-delay="200">
             <h2>Mi CV</h2>
-            <iframe src="CV Manuel Marin EN.pdf" width="100%" height="600px"></iframe>
+            <div class="cv-container">
+                <iframe src="CV Manuel Marin EN.pdf" width="100%" height="600px"></iframe>
+                <div class="cv-overlay">
+                    <a href="CV Manuel Marin EN.pdf" download class="btn primary-btn">
+                        <i class="fas fa-download"></i> Descargar CV
+                    </a>
+                </div>
+            </div>
         </section>
     </section>
 
     <footer>
-        <p>© 2025 - Manuel Marin</p>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    Manuel<span>Marin</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/manuel-marin-castillo-0b205237a/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Manulynx" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:manuelmkt.marin1@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 - Manuel Marin. Todos los derechos reservados.</p>
+            </div>
+        </div>
     </footer>
+    
+    <!-- Botón "Volver arriba" -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Script para AOS (Animate On Scroll) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+        });
+    </script>
+    
+    <!-- Script principal -->
+    <script src="script.js" defer></script>
+</body>
+</html>
 </body>
 </html>
