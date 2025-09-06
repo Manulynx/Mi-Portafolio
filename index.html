@@ -12,6 +12,45 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <!-- SEO: Open Graph, Twitter Card, canonical and structured data -->
+        <link rel="canonical" href="https://manulynx.github.io/Mi-Portafolio/">
+        <meta name="robots" content="index, follow">
+        <meta name="keywords" content="Manuel Marin, portafolio, ingeniero de software, Django, Python, desarrollador web">
+        <meta name="theme-color" content="#0d1b2a">
+        <meta property="og:locale" content="es_ES">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Manuel Marin | Software Engineer">
+        <meta property="og:description" content="Portafolio profesional de Manuel Marin — Ingeniero de Software especializado en desarrollo web y soluciones backend.">
+        <meta property="og:image" content="/img/Manuel.jfif">
+        <meta property="og:url" content="https://manulynx.github.io/Mi-Portafolio/">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Manuel Marin | Software Engineer">
+        <meta name="twitter:description" content="Portafolio profesional de Manuel Marin — Ingeniero de Software especializado en desarrollo web y soluciones backend.">
+        <meta name="twitter:image" content="/img/Manuel.jfif">
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Person",
+                    "name": "Manuel Marin",
+                    "url": "https://manulynx.github.io/Mi-Portafolio/",
+                    "image": "/img/Manuel.jfif",
+                    "jobTitle": "Software Engineer",
+                    "sameAs": [
+                        "https://www.linkedin.com/in/manuel-marin-castillo-0b205237a/",
+                        "https://github.com/Manulynx"
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "url": "https://manulynx.github.io/Mi-Portafolio/",
+                    "name": "Manuel Marin | Portafolio"
+                }
+            ]
+        }
+        </script>
 </head>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -22,7 +61,7 @@
             <div class="logo">
                 Manuel<span>Marin</span>
             </div>
-            <nav>
+            <nav aria-label="Main navigation">
                 <ul id="nav-menu">
                     <li><a href="#inicio" class="active">Inicio</a></li>
                     <li><a href="#sobre-mi">Sobre mí</a></li>
@@ -37,6 +76,8 @@
         </div>
     </header>
 
+
+    <main>
     <section id="inicio">
         <div class="hero-content" data-aos="fade-up">
             <div class="hero-text">
@@ -50,8 +91,8 @@
                 </div>
             </div>
             <div class="hero-social">
-                <a href="https://www.linkedin.com/in/manuel-marin-castillo-0b205237a/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/Manulynx" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/manuel-marin-castillo-0b205237a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Manulynx" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 <a href="mailto:manuelmkt.marin1@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
@@ -68,7 +109,7 @@
             <div class="about-image">
                 <div class="image-wrapper">
                     <!-- Imagen de perfil o avatar -->  
-                    <img src="img/Manuel.jfif" alt="Foto de perfil" class="profile-image">
+                    <img src="img/Manuel.jfif" alt="Foto de perfil" class="profile-image" loading="lazy">
                     <div class="profile-placeholder">
                         <i class="fas fa-user"></i>
                     </div>
@@ -123,12 +164,12 @@
                 </div>
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="img/carrito movil.png" alt="Vista móvil del carrito de compras"></div>
-                        <div class="swiper-slide"><img src="img/EditarInv Like-Home.png" alt="Panel de edición de inventario"></div>
-                        <div class="swiper-slide"><img src="img/Inventario Like-Home.png" alt="Panel de inventario"></div>
-                        <div class="swiper-slide"><img src="img/Carrito pc.png" alt="Vista de carrito en PC"></div>
-                        <div class="swiper-slide"><img src="img/Inicio Admin-Like-Home.png" alt="Panel de administración"></div>
-                        <div class="swiper-slide"><img src="img/Gestion y estadisticas Like-Home.png" alt="Panel de estadísticas"></div>
+                        <div class="swiper-slide"><img src="img/carrito movil.png" alt="Vista móvil del carrito de compras" loading="lazy"></div>
+                        <div class="swiper-slide"><img src="img/EditarInv Like-Home.png" alt="Panel de edición de inventario" loading="lazy"></div>
+                        <div class="swiper-slide"><img src="img/Inventario Like-Home.png" alt="Panel de inventario" loading="lazy"></div>
+                        <div class="swiper-slide"><img src="img/Carrito pc.png" alt="Vista de carrito en PC" loading="lazy"></div>
+                        <div class="swiper-slide"><img src="img/Inicio Admin-Like-Home.png" alt="Panel de administración" loading="lazy"></div>
+                        <div class="swiper-slide"><img src="img/Gestion y estadisticas Like-Home.png" alt="Panel de estadísticas" loading="lazy"></div>
                     </div>
                     <!-- Controles -->
                     <div class="swiper-pagination"></div>
@@ -161,10 +202,10 @@
                 </div>
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="img/Inicio Eglis.png" alt="Página de inicio"></div>
-                        <div class="swiper-slide"><img src="img/Eglis FormRem.png" alt="Formulario de remesas"></div>
-                        <div class="swiper-slide"><img src="img/Eglis NavBar.png" alt="Barra de navegación"></div>
-                        <div class="swiper-slide"><img src="img/Eglis FormEnv.png" alt="Formulario de envío"></div>
+                        <div class="swiper-slide"><img src="img/Inicio Eglis.png" alt="Página de inicio" loading="lazy"></div>
+                        <div class="swiper-slide"><img src="img/Eglis FormRem.png" alt="Formulario de remesas" loading="lazy"></div>
+                        <div class="swiper-slide"><img src="img/Eglis NavBar.png" alt="Barra de navegación" loading="lazy"></div>
+                        <div class="swiper-slide"><img src="img/Eglis FormEnv.png" alt="Formulario de envío" loading="lazy"></div>
                     </div>
                     <!-- Controles -->
                     <div class="swiper-pagination"></div>
@@ -327,13 +368,13 @@
                 <div class="contact-item">
                     <i class="fab fa-linkedin"></i>
                     <h3>LinkedIn</h3>
-                    <a href="https://www.linkedin.com/in/manuel-marin-castillo-0b205237a/" target="_blank">manuel-marin-castillo</a>
+                    <a href="https://www.linkedin.com/in/manuel-marin-castillo-0b205237a/" target="_blank" rel="noopener noreferrer">manuel-marin-castillo</a>
                 </div>
                 
                 <div class="contact-item">
                     <i class="fab fa-github"></i>
                     <h3>GitHub</h3>
-                    <a href="https://github.com/Manulynx" target="_blank">Manulynx</a>
+                    <a href="https://github.com/Manulynx" target="_blank" rel="noopener noreferrer">Manulynx</a>
                 </div>
             </div>
             
@@ -364,7 +405,7 @@
         <section id="cv" data-aos="fade-up" data-aos-delay="200">
             <h2>Mi CV</h2>
             <div class="cv-container">
-                <iframe src="CV Manuel Marin EN.pdf" width="100%" height="600px"></iframe>
+                <iframe src="CV Manuel Marin EN.pdf" width="100%" height="600px" loading="lazy"></iframe>
                 <div class="cv-overlay">
                     <a href="CV Manuel Marin EN.pdf" download class="btn primary-btn">
                         <i class="fas fa-download"></i> Descargar CV
@@ -381,8 +422,8 @@
                     Manuel<span>Marin</span>
                 </div>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/manuel-marin-castillo-0b205237a/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/Manulynx" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/manuel-marin-castillo-0b205237a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Manulynx" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
                     <a href="mailto:manuelmkt.marin1@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
@@ -410,7 +451,5 @@
     
     <!-- Script principal -->
     <script src="script.js" defer></script>
-</body>
-</html>
-</body>
+    </body>
 </html>
