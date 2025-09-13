@@ -24,6 +24,28 @@
     --max-width: 1200px;
 }
 
+/* Modo oscuro */
+body.dark-mode {
+    --primary-color: #5a9fff;
+    --primary-dark: #1e7eff;
+    --secondary-color: #6ad1f2;
+    --accent-color: #6377f2;
+    --text-color: #f8fafc;
+    --text-light: #cbd5e1;
+    --light-text: #1f2937;
+    --background: #0f172a;
+    --card-bg: #1e293b;
+    --header-bg: #0d1b2a;
+    --footer-bg: #0d1b2a;
+    --gray-100: #334155;
+    --gray-200: #475569;
+    --gray-300: #64748b;
+    --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.3);
+    --shadow: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.3);
+    --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.3), 0 4px 6px -2px rgba(0,0,0,0.3);
+    --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.3), 0 10px 10px -5px rgba(0,0,0,0.3);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -1088,6 +1110,43 @@ footer {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     text-fill-color: transparent;
+}
+
+/* Estilos para botones de idioma y modo oscuro */
+.theme-toggle, .lang-toggle {
+    background: none;
+    border: none;
+    color: var(--light-text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: var(--transition);
+    margin-left: 1rem;
+}
+
+.theme-toggle:hover, .lang-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+.theme-toggle.dark-mode-icon::before {
+    content: "\f186"; /* luna */
+}
+
+.theme-toggle.light-mode-icon::before {
+    content: "\f185"; /* sol */
+}
+
+.lang-toggle::before {
+    content: "\f1ab"; /* globo */
+}
+
+@media (max-width: 768px) {
+    .theme-toggle, .lang-toggle {
+        font-size: 1rem;
+        padding: 0.4rem;
+    }
 }
 
 /* Estilos para los enlaces de proyectos */
