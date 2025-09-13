@@ -180,49 +180,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Actualizar frases del typing effect
-        if (window.typeWriterInterval) {
-            clearInterval(window.typeWriterInterval);
-        }
-        const typingElement = document.querySelector('.typing-text');
-        if (typingElement) {
-            const phrases = lang === 'es' 
-                ? ['Ingeniero de Software', 'Desarrollador Python', 'Desarrollador Web', 'Solucionador de Problemas']
-                : ['Software Engineer', 'Python Developer', 'Web Developer', 'Problem Solver'];
-            
-            let currentPhrase = 0;
-            let currentChar = 0;
-            let isDeleting = false;
-            let typingSpeed = 100;
-
-            function typeWriter() {
-                const currentText = phrases[currentPhrase];
-                
-                if (isDeleting) {
-                    typingElement.textContent = currentText.substring(0, currentChar - 1);
-                    currentChar--;
-                    typingSpeed = 50;
-                } else {
-                    typingElement.textContent = currentText.substring(0, currentChar + 1);
-                    currentChar++;
-                    typingSpeed = 100;
-                }
-                
-                if (!isDeleting && currentChar === currentText.length) {
-                    isDeleting = true;
-                    typingSpeed = 1500;
-                } else if (isDeleting && currentChar === 0) {
-                    isDeleting = false;
-                    currentPhrase = (currentPhrase + 1) % phrases.length;
-                    typingSpeed = 500;
-                }
-                
-                window.typeWriterInterval = setTimeout(typeWriter, typingSpeed);
-            }
-            
-            setTimeout(typeWriter, 1000);
-        }
-        
         // Actualizar botón de idioma
         const langToggle = document.getElementById('lang-toggle');
         if (langToggle) {
@@ -278,12 +235,15 @@ document.addEventListener('DOMContentLoaded', function() {
         themeToggle.addEventListener('click', toggleDarkMode);
     }
 
-    // Efecto de escritura para el texto typing
-    const typingElement = document.querySelector('.typing-text');
-    if (typingElement) {
+    // Función independiente para el typing effect
+    function startTypingEffect() {
+        const typingElement = document.querySelector('.typing-text');
+        if (!typingElement) return;
+
         const phrases = currentLang === 'es' 
-            ? ['Software Engineer', 'Python Developer', 'Web Developer', 'Problem Solver']
+            ? ['Ingeniero de Software', 'Desarrollador Python', 'Desarrollador Web', 'Solucionador de Problemas']
             : ['Software Engineer', 'Python Developer', 'Web Developer', 'Problem Solver'];
+        
         let currentPhrase = 0;
         let currentChar = 0;
         let isDeleting = false;
@@ -303,21 +263,22 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             if (!isDeleting && currentChar === currentText.length) {
-                // Pausa al final de la escritura
                 isDeleting = true;
-                typingSpeed = 1500; // Pausa antes de empezar a borrar
+                typingSpeed = 1500;
             } else if (isDeleting && currentChar === 0) {
                 isDeleting = false;
                 currentPhrase = (currentPhrase + 1) % phrases.length;
-                typingSpeed = 500; // Pausa antes de empezar a escribir nueva frase
+                typingSpeed = 500;
             }
             
-            setTimeout(typeWriter, typingSpeed);
+            window.typeWriterInterval = setTimeout(typeWriter, typingSpeed);
         }
         
-        // Iniciar efecto de escritura después de una pausa
         setTimeout(typeWriter, 1000);
     }
+
+    // Iniciar typing effect
+    startTypingEffect();
 
     // Navegación suave
     document.querySelectorAll('a[href^="#"]').forEach(enlace => {
@@ -470,7 +431,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Verificar animaciones al hacer scroll
-    window.addEventListener('scroll', checkAnimations);
-    checkAnimations(); // Verificar al cargar la página
+    // Verificar si el CV se carga correctamente
+    function checkCVLoad() {
+        const iframe = document.querySelector('#cv iframe');
+        const fallback = document.querySelector('.cv-fallback');
+        
+        if (iframe && fallback) {
+            iframe.addEventListener('load', function() {
+                // El CV se cargó correctamente
+                console.log('CV loaded successfully');
+            });
+            
+            iframe.addEventListener('error', function() {
+                // Error al cargar el CV, mostrar fallback
+                iframe.style.display = 'none';
+                fallback.style.display = 'block';
+                console.log('CV failed to load, showing fallback');
+            });
+            
+            // Timeout de respaldo en caso de que no se dispare el evento error
+            setTimeout(function() {
+                if (iframe.contentWindow && iframe.contentWindow.length === 0) {
+                    iframe.style.display = 'none';
+                    fallback.style.display = 'block';
+                }
+            }, 3000);
+        }
+    }
+
+    // Iniciar verificación del CV
+    checkCVLoad();
 });
