@@ -44,17 +44,22 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(enlace => {
         enlace.addEventListener('click', function(e) {
             e.preventDefault();
-            
-            let targetElement = document.querySelector(this.getAttribute('href'));
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                // Cerrar menú móvil después de hacer clic
-                if (document.getElementById('nav-menu').classList.contains('show')) {
-                    document.getElementById('nav-menu').classList.remove('show');
+            const href = this.getAttribute('href');
+
+            // Soporte para botón "Volver arriba" y anclas vacías
+            if (href === '#' || href === '' || href === '#top') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
+            }
+
+            // Cerrar menú móvil después de hacer clic
+            const navMenu = document.getElementById('nav-menu');
+            if (navMenu && navMenu.classList.contains('show')) {
+                navMenu.classList.remove('show');
             }
         });
     });
