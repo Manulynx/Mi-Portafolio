@@ -28,9 +28,9 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
       description,
       url: `/${lang}`,
       locale: lang === "es" ? "es_CL" : "en_US",
-      images: [{ url: profile.photo, width: 400, height: 400, alt: profile.name }],
     },
-    twitter: { card: "summary", title, description, images: [profile.photo] },
+    // og:image comes from ./opengraph-image.tsx (1200x630); X/Twitter falls back to it.
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 
