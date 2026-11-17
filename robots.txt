@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://manulynx.github.io/Mi-Portafolio/sitemap.xml
