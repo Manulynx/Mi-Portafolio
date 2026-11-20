@@ -228,7 +228,7 @@ export const profile = {
       venue: "JCC 2026, Talca, Chile",
       year: 2026,
       type: "conference",
-      status: { es: "Presentado · no aceptado", en: "Submitted · not accepted" },
+      status: { es: "Presentado", en: "Submitted" },
       firstAuthor: true,
     },
     {
@@ -237,7 +237,7 @@ export const profile = {
       venue: "JCC 2026, Talca, Chile",
       year: 2026,
       type: "conference",
-      status: { es: "Presentado · no aceptado", en: "Submitted · not accepted" },
+      status: { es: "Presentado", en: "Submitted" },
       firstAuthor: true,
     },
     {
