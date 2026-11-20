@@ -6,7 +6,14 @@ import { Header } from "@/components/header";
 import { ChatWidget, AskAiButton } from "@/components/chat-widget";
 import { ContactForm } from "@/components/contact-form";
 import { Gallery } from "@/components/gallery";
-import { Card, Icon, Section, Tag } from "@/components/ui";
+import { Badge, Card, Icon, Section, Tag, type Tone } from "@/components/ui";
+
+/** Map a publication status (English label) to a badge tone. */
+function statusTone(en: string): Tone {
+  if (/^(accepted|published|poster presented)/i.test(en)) return "success";
+  if (/^submitted/i.test(en)) return "pending";
+  return "neutral";
+}
 
 function jsonLd(lang: Locale) {
   return {
@@ -68,20 +75,21 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
 
       <main id="top" className="mx-auto max-w-5xl px-4 sm:px-6">
         {/* HERO */}
-        <section className="grid items-center gap-10 py-16 sm:py-24 md:grid-cols-[1fr_auto]">
+        <section className="relative grid items-center gap-10 py-20 sm:py-28 md:grid-cols-[1fr_auto]">
+          <div className="hero-bg pointer-events-none absolute inset-x-[-50vw] inset-y-0 -z-10" aria-hidden="true" />
           <div>
-            <p className="mb-3 inline-flex items-center gap-1.5 font-mono text-xs text-muted">
+            <p className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-border bg-surface/70 px-3 py-1 font-mono text-xs text-muted backdrop-blur">
               <Icon name="pin" className="size-3.5" /> {t(profile.location)}
             </p>
-            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">{profile.name}</h1>
-            <p className="mt-3 text-lg text-accent sm:text-xl">{t(profile.headline)}</p>
+            <h1 className="text-4xl font-semibold tracking-tighter text-balance sm:text-6xl">{profile.name}</h1>
+            <p className="mt-4 text-lg font-medium text-accent sm:text-xl">{t(profile.headline)}</p>
             <p className="mt-5 max-w-2xl leading-relaxed text-muted">{t(profile.tagline)}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <AskAiButton label={d.hero.askAi} />
-              <a href="#contact" className="rounded-xl border border-border px-5 py-2.5 text-sm font-medium hover:border-accent hover:text-accent">
+              <a href="#contact" className="rounded-xl border border-border bg-surface px-5 py-2.5 transition-colors text-sm font-medium hover:border-accent hover:text-accent">
                 {d.hero.contact}
               </a>
-              <a href={profile.cv[lang]} download className="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-2.5 text-sm font-medium hover:border-accent hover:text-accent">
+              <a href={profile.cv[lang]} download className="inline-flex items-center gap-2 rounded-xl border border-border bg-surface px-5 py-2.5 transition-colors text-sm font-medium hover:border-accent hover:text-accent">
                 <Icon name="download" className="size-4" /> {d.hero.cv}
               </a>
             </div>
@@ -92,11 +100,14 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               <a href={`mailto:${profile.email}`} aria-label="Email" className="rounded-lg p-2 hover:bg-surface-2 hover:text-fg"><Icon name="mail" /></a>
             </div>
           </div>
-          <Image src={profile.photo} alt={profile.name} width={240} height={240} priority className="mx-auto size-44 rounded-full border border-border object-cover sm:size-60" />
+          <div className="relative mx-auto">
+            <div className="absolute -inset-3 rounded-full bg-gradient-to-tr from-accent/30 via-transparent to-accent/10 blur-xl" aria-hidden="true" />
+            <Image src={profile.photo} alt={profile.name} width={240} height={240} priority className="relative size-44 rounded-full border-4 border-surface object-cover shadow-xl ring-1 ring-border sm:size-60" />
+          </div>
         </section>
 
         {/* ABOUT */}
-        <Section id="about" title={d.sections.about}>
+        <Section id="about" index="01" title={d.sections.about}>
           <div className="grid gap-10 md:grid-cols-[3fr_2fr]">
             <div className="space-y-4 leading-relaxed text-muted">
               {profile.about.map((p, i) => (
@@ -106,9 +117,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             </div>
             <dl className="grid grid-cols-2 gap-3">
               {profile.stats.map((s) => (
-                <Card key={s.value} className="flex flex-col p-4">
+                <Card key={s.label.es} className="flex flex-col p-5">
                   <dt className="text-xs leading-snug text-muted">{t(s.label)}</dt>
-                  <dd className="order-first text-2xl font-semibold text-accent">{s.value}</dd>
+                  <dd className="order-first mb-1 text-3xl font-semibold tracking-tight text-fg tabular-nums">{s.value}</dd>
                 </Card>
               ))}
             </dl>
@@ -116,13 +127,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </Section>
 
         {/* RESEARCH */}
-        <Section id="research" title={d.sections.research}>
+        <Section id="research" index="02" title={d.sections.research}>
           <div className="space-y-6">
             {profile.research.map((r) => (
               <Card key={r.id}>
                 <div className="flex flex-wrap items-center gap-2 font-mono text-xs text-muted">
                   <span>{r.funding}</span>·<span>{fmtPeriod(r.period, lang)}</span>
-                  {r.current && <span className="rounded-full bg-accent-soft px-2 py-0.5 text-accent">{d.research.current}</span>}
+                  {r.current && <Badge tone="success">{d.research.current}</Badge>}
                 </div>
                 <h3 className="mt-2 text-lg font-semibold">{t(r.title)}</h3>
                 <p className="text-sm text-muted">
@@ -156,15 +167,20 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </Section>
 
         {/* PUBLICATIONS */}
-        <Section id="publications" title={d.sections.publications}>
-          <ol className="space-y-5">
+        <Section id="publications" index="03" title={d.sections.publications}>
+          <ol className="divide-y divide-border overflow-hidden rounded-2xl border border-border bg-surface">
             {profile.publications.map((p) => (
-              <li key={p.title} className="border-b border-border pb-5 last:border-0">
-                <div className="flex flex-wrap items-center gap-2 font-mono text-xs text-muted">
-                  <span>{p.year}</span>·<span>{pubType[p.type]}</span>·<span className="text-accent">{t(p.status)}</span>
+              <li key={p.title} className="grid gap-x-6 gap-y-2 p-5 transition-colors hover:bg-surface-2/60 sm:grid-cols-[5rem_1fr] sm:p-6">
+                <div className="font-mono text-xs text-muted">
+                  <p className="text-base font-semibold text-fg">{p.year}</p>
+                  <p>{pubType[p.type]}</p>
+                </div>
+                <div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <Badge tone={statusTone(p.status.en)}>{t(p.status)}</Badge>
                   {p.firstAuthor && p.type !== "poster" && <Tag>{d.pubs.firstAuthor}</Tag>}
                 </div>
-                <p className="mt-1.5 font-medium">{p.title}</p>
+                <p className="mt-2 font-medium leading-snug text-balance">{p.title}</p>
                 <p className="mt-1 text-sm text-muted">
                   {p.authors} <em>{p.venue}</em>
                 </p>
@@ -173,13 +189,14 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                     {d.pubs.view} <Icon name="external" className="size-3.5" />
                   </a>
                 )}
+                </div>
               </li>
             ))}
           </ol>
         </Section>
 
         {/* PROJECTS */}
-        <Section id="projects" title={d.sections.projects}>
+        <Section id="projects" index="04" title={d.sections.projects}>
           <div className="grid gap-6 md:grid-cols-2">
             {profile.projects.map((p) => (
               <Card key={p.id} className="flex flex-col gap-4">
@@ -216,7 +233,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </Section>
 
         {/* EXPERIENCE + TEACHING */}
-        <Section id="experience" title={d.sections.experience}>
+        <Section id="experience" index="05" title={d.sections.experience}>
           <div className="grid gap-12 md:grid-cols-2">
             <Timeline jobs={profile.experience} lang={lang} />
             <div>
@@ -227,7 +244,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </Section>
 
         {/* SKILLS */}
-        <Section id="skills" title={d.sections.skills}>
+        <Section id="skills" index="06" title={d.sections.skills}>
           <div className="grid gap-4 sm:grid-cols-2">
             {profile.skills.map((g) => (
               <Card key={g.name.es} className="p-5">
@@ -243,7 +260,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </Section>
 
         {/* CONTACT */}
-        <Section id="contact" title={d.sections.contact}>
+        <Section id="contact" index="07" title={d.sections.contact}>
           <div className="grid gap-10 md:grid-cols-[2fr_3fr]">
             <div className="space-y-4 text-sm">
               <p className="leading-relaxed text-muted">{d.contact.intro}</p>

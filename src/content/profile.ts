@@ -121,7 +121,7 @@ export const profile = {
   ] satisfies L[],
 
   stats: [
-    { value: "4", label: { es: "publicaciones y ponencias aceptadas", en: "accepted papers & talks" } },
+    { value: "3", label: { es: "publicaciones y ponencias aceptadas", en: "accepted papers & talks" } },
     { value: "7", label: { es: "proyectos web entregados", en: "web projects delivered" } },
     { value: "48.036", label: { es: "parches de imágenes médicas procesados", en: "medical image patches processed" } },
     { value: "3", label: { es: "tesis de pregrado tutoradas", en: "undergraduate theses supervised" } },
@@ -156,8 +156,8 @@ export const profile = {
           en: "Leakage-free validation/test splits; protocol approved by the UV Scientific Ethics Committee.",
         },
         {
-          es: "Resultados: artículo aceptado en JCC 2026 (primer autor) y artículo de datos sobre el corpus en preparación para Data in Brief.",
-          en: "Outcomes: paper accepted at JCC 2026 (first author) and a data paper on the corpus in preparation for Data in Brief.",
+          es: "Resultados: artículo presentado a JCC 2026 (primer autor) y artículo de datos sobre el corpus en preparación para Data in Brief.",
+          en: "Outcomes: paper submitted to JCC 2026 (first author) and a data paper on the corpus in preparation for Data in Brief.",
         },
       ],
       tags: ["NMT", "T5", "mT5", "Hugging Face", "ELAN", "HPC"],
@@ -228,7 +228,7 @@ export const profile = {
       venue: "JCC 2026, Talca, Chile",
       year: 2026,
       type: "conference",
-      status: { es: "Aceptado · actas por publicarse en IEEE Xplore", en: "Accepted · proceedings forthcoming in IEEE Xplore" },
+      status: { es: "Presentado · no aceptado", en: "Submitted · not accepted" },
       firstAuthor: true,
     },
     {
@@ -237,7 +237,7 @@ export const profile = {
       venue: "JCC 2026, Talca, Chile",
       year: 2026,
       type: "conference",
-      status: { es: "Aceptado · actas por publicarse en IEEE Xplore", en: "Accepted · proceedings forthcoming in IEEE Xplore" },
+      status: { es: "Presentado · no aceptado", en: "Submitted · not accepted" },
       firstAuthor: true,
     },
     {

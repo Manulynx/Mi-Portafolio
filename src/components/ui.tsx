@@ -1,11 +1,14 @@
 import type { ReactNode } from "react";
 
-export function Section({ id, title, children }: { id: string; title: string; children: ReactNode }) {
+export function Section({ id, title, index, children }: { id: string; title: string; index?: string; children: ReactNode }) {
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className="py-16 sm:py-20">
-      <h2 id={`${id}-title`} className="mb-8 text-2xl font-semibold tracking-tight sm:text-3xl">
-        {title}
-      </h2>
+    <section id={id} aria-labelledby={`${id}-title`} className="border-t border-border py-16 sm:py-24">
+      <div className="mb-10 flex items-baseline gap-4">
+        {index && <span className="font-mono text-sm text-accent" aria-hidden="true">{index}</span>}
+        <h2 id={`${id}-title`} className="text-2xl font-semibold tracking-tight sm:text-3xl">
+          {title}
+        </h2>
+      </div>
       {children}
     </section>
   );
@@ -20,7 +23,28 @@ export function Tag({ children }: { children: ReactNode }) {
 }
 
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <div className={`rounded-2xl border border-border bg-surface p-6 ${className}`}>{children}</div>;
+  return (
+    <div className={`rounded-2xl border border-border bg-surface p-6 shadow-[0_1px_2px_rgb(0_0_0/0.04)] transition-[border-color,box-shadow] duration-200 hover:border-accent/40 hover:shadow-[0_8px_30px_-12px_rgb(0_0_0/0.18)] ${className}`}>
+      {children}
+    </div>
+  );
+}
+
+export type Tone = "success" | "pending" | "neutral";
+
+const tones: Record<Tone, string> = {
+  success: "border-accent/30 bg-accent-soft text-accent",
+  pending: "border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-300",
+  neutral: "border-border bg-surface-2 text-muted",
+};
+
+export function Badge({ tone = "neutral", children }: { tone?: Tone; children: ReactNode }) {
+  return (
+    <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium ${tones[tone]}`}>
+      <span className="size-1.5 rounded-full bg-current" aria-hidden="true" />
+      {children}
+    </span>
+  );
 }
 
 /** Minimal inline icons (no icon library dependency). */

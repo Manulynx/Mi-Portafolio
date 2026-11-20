@@ -27,8 +27,9 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dict }) {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-bg/80 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-4 sm:px-6">
-        <a href="#top" className="font-semibold tracking-tight">
-          Manuel<span className="text-accent">Marín</span>
+        <a href="#top" className="flex items-center gap-2 font-semibold tracking-tight">
+          <span className="grid size-8 place-items-center rounded-lg bg-accent font-mono text-xs text-accent-fg">MM</span>
+          <span>Manuel<span className="text-accent">Marín</span></span>
         </a>
 
         <nav aria-label="Main" className="hidden md:block">

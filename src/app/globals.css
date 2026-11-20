@@ -49,6 +49,22 @@ html {
 body {
   background: var(--bg);
   color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--fg);
+}
+
+/* Subtle dotted grid + accent glow behind the hero. */
+.hero-bg {
+  background-image:
+    radial-gradient(ellipse 60% 50% at 70% 0%, color-mix(in oklab, var(--accent) 14%, transparent), transparent 70%),
+    radial-gradient(circle, color-mix(in oklab, var(--fg) 9%, transparent) 1px, transparent 1px);
+  background-size: 100% 100%, 22px 22px;
+  mask-image: linear-gradient(to bottom, black 55%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {
