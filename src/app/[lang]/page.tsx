@@ -10,7 +10,7 @@ import { Badge, Card, Icon, Section, Tag, type Tone } from "@/components/ui";
 
 /** Map a publication status (English label) to a badge tone. */
 function statusTone(en: string): Tone {
-  if (/^(accepted|published|poster presented)/i.test(en)) return "success";
+  if (/^(accepted|published|poster presented|oral presentation)/i.test(en)) return "success";
   if (/^submitted/i.test(en)) return "pending";
   return "neutral";
 }

@@ -121,7 +121,7 @@ export const profile = {
   ] satisfies L[],
 
   stats: [
-    { value: "3", label: { es: "publicaciones y ponencias aceptadas", en: "accepted papers & talks" } },
+    { value: "5", label: { es: "publicaciones y ponencias aceptadas", en: "accepted papers & talks" } },
     { value: "7", label: { es: "proyectos web entregados", en: "web projects delivered" } },
     { value: "48.036", label: { es: "parches de imágenes médicas procesados", en: "medical image patches processed" } },
     { value: "3", label: { es: "tesis de pregrado tutoradas", en: "undergraduate theses supervised" } },
@@ -156,8 +156,8 @@ export const profile = {
           en: "Leakage-free validation/test splits; protocol approved by the UV Scientific Ethics Committee.",
         },
         {
-          es: "Resultados: artículo presentado a JCC 2026 (primer autor) y artículo de datos sobre el corpus en preparación para Data in Brief.",
-          en: "Outcomes: paper submitted to JCC 2026 (first author) and a data paper on the corpus in preparation for Data in Brief.",
+          es: "Resultados: dos artículos como primer autor presentados en ponencia oral en JCC 2026 (actas por publicarse) y artículo de datos sobre el corpus en preparación para Data in Brief.",
+          en: "Outcomes: two first-author papers presented orally at JCC 2026 (proceedings forthcoming) and a data paper on the corpus in preparation for Data in Brief.",
         },
       ],
       tags: ["NMT", "T5", "mT5", "Hugging Face", "ELAN", "HPC"],
@@ -228,7 +228,7 @@ export const profile = {
       venue: "JCC 2026, Talca, Chile",
       year: 2026,
       type: "conference",
-      status: { es: "Presentado", en: "Submitted" },
+      status: { es: "Ponencia oral presentada · actas por publicarse", en: "Oral presentation delivered · proceedings forthcoming" },
       firstAuthor: true,
     },
     {
@@ -237,7 +237,7 @@ export const profile = {
       venue: "JCC 2026, Talca, Chile",
       year: 2026,
       type: "conference",
-      status: { es: "Presentado", en: "Submitted" },
+      status: { es: "Ponencia oral presentada · actas por publicarse", en: "Oral presentation delivered · proceedings forthcoming" },
       firstAuthor: true,
     },
     {
@@ -441,8 +441,8 @@ export const profile = {
       name: "N3storg Touch",
       kind: { es: "Catálogo estático", en: "Static catalog" },
       summary: {
-        es: "Catálogo de servicios estático y responsive, desplegado sin servidor en GitHub Pages.",
-        en: "Static, responsive services catalog deployed serverless on GitHub Pages.",
+        es: "Catálogo de servicios de masajes estático y responsive, desplegado sin servidor en Cloudflare Pages.",
+        en: "Static, responsive massage services catalog deployed serverless on Cloudflare Pages.",
       },
       features: [],
       stack: ["HTML", "CSS", "JavaScript"],
@@ -451,6 +451,7 @@ export const profile = {
         { src: "/img/catalogo-nestor-main-section.png", alt: { es: "Sección de servicios", en: "Services section" } },
       ],
       status: { es: "Entregado al cliente", en: "Delivered to client" },
+      url: "https://n3storg-touch-catalogo-de-masajes.pages.dev/",
     },
   ] satisfies Project[],
 
