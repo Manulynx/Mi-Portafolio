@@ -71,17 +71,20 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd(lang)) }} />
+      <a href="#top" className="sr-only z-50 rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-fg focus:not-sr-only focus:fixed focus:top-3 focus:left-3">
+        {d.skip}
+      </a>
       <Header lang={lang} dict={d} />
 
-      <main id="top" className="mx-auto max-w-5xl px-4 sm:px-6">
+      <main id="top" tabIndex={-1} className="mx-auto max-w-5xl px-4 outline-none sm:px-6">
         {/* HERO */}
-        <section className="relative grid items-center gap-10 py-20 sm:py-28 md:grid-cols-[1fr_auto]">
-          <div className="hero-bg pointer-events-none absolute inset-x-[-50vw] inset-y-0 -z-10" aria-hidden="true" />
+        <section className="relative grid items-center gap-8 py-12 sm:py-28 md:grid-cols-[1fr_auto] md:gap-10">
+          <div className="hero-bg pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2" aria-hidden="true" />
           <div>
             <p className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-border bg-surface/70 px-3 py-1 font-mono text-xs text-muted backdrop-blur">
               <Icon name="pin" className="size-3.5" /> {t(profile.location)}
             </p>
-            <h1 className="text-4xl font-semibold tracking-tighter text-balance sm:text-6xl">{profile.name}</h1>
+            <h1 className="text-[2.5rem] leading-[1.05] font-semibold tracking-tighter text-balance sm:text-6xl">{profile.name}</h1>
             <p className="mt-4 text-lg font-medium text-accent sm:text-xl">{t(profile.headline)}</p>
             <p className="mt-5 max-w-2xl leading-relaxed text-muted">{t(profile.tagline)}</p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -100,9 +103,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               <a href={`mailto:${profile.email}`} aria-label="Email" className="rounded-lg p-2 hover:bg-surface-2 hover:text-fg"><Icon name="mail" /></a>
             </div>
           </div>
-          <div className="relative mx-auto">
+          <div className="relative order-first mx-auto md:order-none">
             <div className="absolute -inset-3 rounded-full bg-gradient-to-tr from-accent/30 via-transparent to-accent/10 blur-xl" aria-hidden="true" />
-            <Image src={profile.photo} alt={profile.name} width={240} height={240} priority className="relative size-44 rounded-full border-4 border-surface object-cover shadow-xl ring-1 ring-border sm:size-60" />
+            <Image src={profile.photo} alt={profile.name} width={240} height={240} priority className="relative size-32 rounded-full border-4 border-surface object-cover shadow-xl ring-1 ring-border sm:size-60" />
           </div>
         </section>
 
@@ -285,9 +288,17 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       </main>
 
       <footer className="border-t border-border">
-        <div className="mx-auto flex max-w-5xl flex-wrap justify-between gap-2 px-4 py-8 text-xs text-muted sm:px-6">
-          <p>© 2026 {profile.fullName}</p>
-          <p>{d.footer.built}</p>
+        <div className="mx-auto flex max-w-5xl flex-col gap-4 px-4 pt-8 pb-24 text-xs sm:pb-8 text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <div>
+            <p className="text-sm font-medium text-fg">{profile.fullName}</p>
+            <p className="mt-1">© 2026 · {d.footer.built}</p>
+          </div>
+          <div className="flex items-center gap-1">
+            <a href={profile.links.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="rounded-lg p-2 hover:bg-surface-2 hover:text-fg"><Icon name="github" className="size-4" /></a>
+            <a href={profile.links.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="rounded-lg p-2 hover:bg-surface-2 hover:text-fg"><Icon name="linkedin" className="size-4" /></a>
+            <a href={profile.links.orcid} target="_blank" rel="noopener noreferrer" aria-label="ORCID" className="rounded-lg p-2 hover:bg-surface-2 hover:text-fg"><Icon name="orcid" className="size-4" /></a>
+            <a href="#top" className="ml-2 rounded-lg border border-border px-3 py-1.5 hover:border-accent hover:text-accent">{d.footer.top} ↑</a>
+          </div>
         </div>
       </footer>
 

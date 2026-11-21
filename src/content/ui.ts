@@ -50,7 +50,8 @@ const es = {
   },
   theme: { toggle: "Cambiar tema" },
   lang: { switch: "English", label: "Cambiar idioma" },
-  footer: { built: "Hecho con Next.js · desplegado en Vercel" },
+  footer: { built: "Hecho con Next.js · desplegado en Vercel", top: "Volver arriba" },
+  skip: "Saltar al contenido",
 };
 
 export type Dict = typeof es;
@@ -96,7 +97,8 @@ const en: Dict = {
   },
   theme: { toggle: "Toggle theme" },
   lang: { switch: "Español", label: "Change language" },
-  footer: { built: "Built with Next.js · deployed on Vercel" },
+  footer: { built: "Built with Next.js · deployed on Vercel", top: "Back to top" },
+  skip: "Skip to content",
 };
 
 export const dictionaries: Record<Locale, Dict> = { es, en };

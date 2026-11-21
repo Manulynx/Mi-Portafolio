@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Locale } from "@/content/profile";
 import type { Dict } from "@/content/ui";
 import { Icon } from "./ui";
 
 export function Header({ lang, dict }: { lang: Locale; dict: Dict }) {
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState<string | null>(null);
   const other: Locale = lang === "es" ? "en" : "es";
   const items = [
     ["research", dict.nav.research],
@@ -16,6 +17,27 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dict }) {
     ["experience", dict.nav.experience],
     ["contact", dict.nav.contact],
   ] as const;
+
+  // Highlight the nav item of the section currently in view.
+  useEffect(() => {
+    const sections = items.map(([id]) => document.getElementById(id)).filter((el): el is HTMLElement => el !== null);
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) if (e.isIntersecting) setActive(e.target.id);
+      },
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+    sections.forEach((s) => io.observe(s));
+    return () => io.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   const toggleTheme = () => {
     const dark = document.documentElement.classList.toggle("dark");
@@ -36,7 +58,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dict }) {
           <ul className="flex gap-6 text-sm text-muted">
             {items.map(([id, label]) => (
               <li key={id}>
-                <a href={`#${id}`} className="transition-colors hover:text-fg">
+                <a href={`#${id}`} aria-current={active === id ? "location" : undefined} className={`relative transition-colors hover:text-fg ${active === id ? "text-fg after:absolute after:inset-x-0 after:-bottom-[21px] after:h-0.5 after:rounded-full after:bg-accent" : ""}`}>
                   {label}
                 </a>
               </li>
@@ -65,7 +87,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dict }) {
           <ul className="mx-auto flex max-w-5xl flex-col px-4 py-2">
             {items.map(([id, label]) => (
               <li key={id}>
-                <a href={`#${id}`} onClick={() => setOpen(false)} className="block py-2.5 text-muted hover:text-fg">
+                <a href={`#${id}`} onClick={() => setOpen(false)} aria-current={active === id ? "location" : undefined} className={`block py-3 hover:text-fg ${active === id ? "font-medium text-accent" : "text-muted"}`}>
                   {label}
                 </a>
               </li>

@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 
 export function Section({ id, title, index, children }: { id: string; title: string; index?: string; children: ReactNode }) {
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className="border-t border-border py-16 sm:py-24">
-      <div className="mb-10 flex items-baseline gap-4">
+    <section id={id} aria-labelledby={`${id}-title`} className="reveal border-t border-border py-14 sm:py-24">
+      <div className="mb-8 flex items-baseline gap-4 sm:mb-10">
         {index && <span className="font-mono text-sm text-accent" aria-hidden="true">{index}</span>}
         <h2 id={`${id}-title`} className="text-2xl font-semibold tracking-tight sm:text-3xl">
           {title}
