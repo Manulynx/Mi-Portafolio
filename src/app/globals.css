@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+/* Dark mode follows a `.dark` class on <html> (set before paint by the inline theme script). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --surface-2: #f4f4f2;
+  --fg: #1c1917;
+  --muted: #57534e;
+  --border: #e7e5e4;
+  --accent: #0f766e;
+  --accent-fg: #ffffff;
+  --accent-soft: #ccfbf1;
+}
+
+.dark {
+  --bg: #0c0f12;
+  --surface: #13181d;
+  --surface-2: #1a2026;
+  --fg: #e7ecef;
+  --muted: #9aa5ae;
+  --border: #26303a;
+  --accent: #2dd4bf;
+  --accent-fg: #042f2e;
+  --accent-soft: #123a37;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+html,
+body {
+  /* Guard against any decorative element causing horizontal scroll on phones. */
+  overflow-x: clip;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--fg);
+}
+
+/* Subtle dotted grid + accent glow behind the hero. */
+.hero-bg {
+  background-image:
+    radial-gradient(ellipse 60% 50% at 70% 0%, color-mix(in oklab, var(--accent) 14%, transparent), transparent 70%),
+    radial-gradient(circle, color-mix(in oklab, var(--fg) 9%, transparent) 1px, transparent 1px);
+  background-size: 100% 100%, 22px 22px;
+  mask-image: linear-gradient(to bottom, black 55%, transparent);
+}
+
+/* Scroll-driven reveal (CSS only; browsers without support simply show content). */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
